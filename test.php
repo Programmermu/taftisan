@@ -194,10 +194,12 @@ mysqli_close($conn);
     display: inline-block;
     margin-bottom: 8px;
     margin-left: auto;
+    width: 250px;
+    height: 100%;
   }
 
   #quizForm input[type="radio"] {
-    margin-right: 5px;
+    margin-right: 5px
   }
 
   #quizForm input[type="submit"] {
@@ -280,11 +282,11 @@ mysqli_close($conn);
   </form>
 
   <div id="results">
-    <p>Skor: <?php echo $_SESSION['score']; ?></p>
-    <p id="jawabansalah">Jawaban Salah: <?php echo $_SESSION['wrong_answers']; ?></p>
+    <p>Skor: <span id="score"><?php echo $_SESSION['score']; ?></span></p>
+    <p>Jawaban Salah: <span id="jawabansalah"><?php echo $_SESSION['wrong_answers']; ?></span></p>
     <p <?php if (!isset($_SESSION['settings']['timer'])) echo "hidden"; ?>>Waktu Tersisa:
       <strong id="timer">
-        <?php echo $_SESSION['settings']['time'] ?>
+        <?php echo $_SESSION['settings']['time'] . " Detik" ?>
       </strong>
     </p>
   </div>
@@ -310,7 +312,7 @@ mysqli_close($conn);
       if (waktu == 1) {
         if (time > 0) {
           time--;
-          document.getElementById('timer').innerHTML = time & " Detik";
+          document.getElementById('timer').innerHTML = time + " Detik";
         } else {
           document.getElementById('timer').innerHTML = "Waktu Habis";
           tampilkanHasil();
@@ -341,8 +343,10 @@ mysqli_close($conn);
 
       // Membandingkan jawaban yang dipilih dengan jawaban yang benar
       if (jawabanYangDipilih !== jawabanYangBenar) {
-        document.getElementById('jawaban').style.color = 'red';
-        document.getElementById('status').style.color = 'red';
+        document.getElementById('score').innerHTML = <?php echo $_SESSION['score'] ?> - 5;
+        document.getElementById('jawabansalah').innerHTML = <?php echo $_SESSION['wrong_answers'] ?> + 1;
+      } else {
+        document.getElementById('score').innerHTML = <?php echo $_SESSION['score'] ?> + 10;
       }
 
     }

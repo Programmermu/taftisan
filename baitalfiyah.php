@@ -66,6 +66,10 @@ mysqli_close($conn);
       <span> :
         <?= $bait['no_bait']; ?>
       </span>
+      <form action="editbait.php" method="post">
+        <input type="hidden" name="no_bait" value="<?= $bait['no_bait']; ?>">
+        <button type="submit">Edit</button>
+      </form>
       </p> <!-- Ganti 'nama_field' dengan nama kolom yang ingin Anda tampilkan -->
       <?php if ($bait['no_bait'] % 100 == 0) { ?>
         <a href="index.php" id="backToStart">Kembali ke Awal</a>
