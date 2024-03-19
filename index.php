@@ -168,6 +168,7 @@ $siswa = array(
       <input type="submit" value="Simpan Pengaturan">
       <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
       <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
+      <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
     </form>
   </div>
 </body>

@@ -289,6 +289,7 @@ mysqli_close($conn);
         <?php echo $_SESSION['settings']['time'] . " Detik" ?>
       </strong>
     </p>
+    <!-- <button onclick="togglemode()">Mode</button> -->
   </div>
   <div class="navigation">
     <a href="logout.php" id="logout">Logout</a>
@@ -304,9 +305,24 @@ mysqli_close($conn);
     var radioButtons = document.getElementsByName('answer');
     var answerContainer = document.getElementsByName('answerContainer');
 
+    var answer = <?php echo json_encode($answers) ?>;
+    var full = true;
+
     // Mendefinisikan variabel untuk menyimpan nilai jawaban yang dipilih
     var jawabanYangDipilih = "";
 
+    // function togglemode() {
+    //   if (full) {
+    //     radioButtons.forEach((button, index) => {
+    //       button.nextElementSibling.innerHTML = `... ${answer[index]}`;
+    //     });
+    //   } else {
+    //     radioButtons.forEach((button, index) => {
+    //       button.nextElementSibling.innerHTML = `... ${answer[index].split(' ').slice(0,3).join(' ')}`;
+    //     });
+    //   }
+    //   full = !full;
+    // }
 
     function timer() {
       if (waktu == 1) {
