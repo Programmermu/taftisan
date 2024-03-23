@@ -49,9 +49,27 @@ mysqli_close($conn);
     margin-left: auto;
     margin-right: auto;
   }
+
+  #header {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background-color: aliceblue;
+  }
+
+  #backheader {
+    width: auto;
+  }
 </style>
 
 <body>
+  <div id="header">
+    <label>Loncat :
+    </label>
+    <input type="number" name="nobait" id="nobait">
+    <button onclick="focusElement()">Loncat</button>
+    <a href="index.php" id="backheader">Kembali ke Awal</a>
+  </div>
   <div class="data">
     <?php foreach ($data as $bait) { ?>
       <p>
@@ -63,14 +81,10 @@ mysqli_close($conn);
           <?= $bait['satar_tsani']; ?>
         </span>
       </div>
-      <span> :
+      <span id="<?= $bait['no_bait']; ?>" tabindex="0"> :
         <?= $bait['no_bait']; ?>
       </span>
-      <form action="editbait.php" method="post">
-        <input type="hidden" name="no_bait" value="<?= $bait['no_bait']; ?>">
-        <button type="submit">Edit</button>
-      </form>
-      </p> <!-- Ganti 'nama_field' dengan nama kolom yang ingin Anda tampilkan -->
+      </p>
       <?php if ($bait['no_bait'] % 100 == 0) { ?>
         <a href="index.php" id="backToStart">Kembali ke Awal</a>
       <?php } ?>
@@ -78,5 +92,21 @@ mysqli_close($conn);
   </div>
 
 </body>
+<script>
+  let bait = <?php echo json_encode($data) ?>;
+  let mode = true;
+  let satar_awal = document.getElementsByClassName("satar_awal");
+  let satar_tsani = document.getElementsByClassName("satar_tsani");
+
+  function toggleMode() {
+    mode = !mode;
+  }
+
+  function focusElement() {
+    var nomor = document.getElementById("nobait");
+    var inputElement = document.getElementById(nomor.value);
+    inputElement.focus();
+  }
+</script>
 
 </html>
