@@ -98,7 +98,7 @@ mysqli_close($conn);
   <div id="header">
     <label>Loncat :
     </label>
-    <input type="number" name="nobait" id="nobait">
+    <input type="number" name="nobait" id="nobait" max="500">
     <button onclick="focusElement()" id="loncat">Loncat</button>
     <a href="index.php" id="backheader">Kembali ke Awal</a>
   </div>
