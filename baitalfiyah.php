@@ -40,6 +40,7 @@ mysqli_close($conn);
     text-align: right;
     width: 88%;
     transition: opacity 2s ease-in-out;
+    font-size: 16px;
   }
 
   .genap {
@@ -78,7 +79,7 @@ mysqli_close($conn);
     bottom: 0;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     z-index: 100;
     width: 100%;
     background-color: azure;
@@ -123,14 +124,13 @@ mysqli_close($conn);
       <span id="<?= $bait['no_bait']; ?>" tabindex="0"> :
         <?= $bait['no_bait']; ?>
       </span>
-      <?php if ($bait['no_bait'] % 100 == 0) { ?>
-        <a href="index.php" id="backToStart">Kembali ke Awal</a>
-      <?php } ?>
       </p>
     <?php } ?>
   </div>
   <div id="footer">
-    <button onclick="toggleMode()" id="toggle">Ubah Mode</button>
+    <button onclick="perkecil()"> Font-- </button>
+    <button onclick="toggleMode()" id="toggle">Mode Awal Satar</button>
+    <button onclick="perbesar()"> Font++ </button>
   </div>
 
 </body>
@@ -139,13 +139,17 @@ mysqli_close($conn);
   let mode = true;
   let awal_satar = document.getElementsByClassName("satar_awal");
   let satar_tsani = document.getElementsByClassName("satar_tsani");
+  let satarElements = document.querySelectorAll('.satar');
+  let size = 16;
 
   function toggleMode() {
     for (let i = 0; i < awal_satar.length; i++) {
       if (mode) {
         awal_satar[i].textContent = "..." + abyat[i].satar_awal.split(' ').slice(0, 3).join(' ');
+        document.getElementById("toggle").textContent = "Mode Full"
         satar_tsani[i].hidden = true;
       } else {
+        document.getElementById("toggle").textContent = "Mode Awal Bait"
         awal_satar[i].textContent = abyat[i].satar_awal;
         satar_tsani[i].style.opacity = 0;
         satar_tsani[i].hidden = false;
@@ -171,6 +175,20 @@ mysqli_close($conn);
       focusElement();
     }
   });
+
+  function perbesar() {
+    size = size + 1;
+    satarElements.forEach(function(element) {
+      element.style.fontSize = size + 'px';
+    });
+  }
+
+  function perkecil() {
+    size = size - 1;
+    satarElements.forEach(function(element) {
+      element.style.fontSize = size + 'px';
+    });
+  }
 </script>
 
 </html>
