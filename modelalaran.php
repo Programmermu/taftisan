@@ -35,12 +35,13 @@ if (!isset($_SESSION['settings'])) {
   if (isset($_POST['answer'])) {
     if ($_POST['answer'] == $_SESSION['settings']['correctAnswer']) {
       $_SESSION['score'] += 10;
+      $_SESSION['settings']['baitsoal']++;
     } else {
+      $_SESSION['settings']['baitsoal']++;
       array_push($_SESSION['settings']['salahjawab'], array($_SESSION['settings']['soal'], $_SESSION['settings']['correctAnswer']));
       $_SESSION['score'] -= 5;
       $_SESSION['wrong_answers'] += 1;
     }
-    $_SESSION['settings']['baitsoal']++;
 
     if ($_SESSION['settings']['baitsoal'] == $_SESSION['settings']['end_bait']) {
       header("Location: hasillalaran.php");
@@ -392,6 +393,6 @@ mysqli_close($conn);
 
     // Panggil fungsi timer setiap 1 detik
     setInterval(timer, 1000);
-    setInterval(pilihjawaban, 100);
+    setInterval(pilihjawaban, 50);
   </script>
 </body>
