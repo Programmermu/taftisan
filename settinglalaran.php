@@ -111,7 +111,7 @@ $siswa = array(
 
 <body>
   <div id="isi">
-    <form action="test.php" method="post">
+    <form action="modelalaran.php" method="post">
       <label for="tipe">Tipe :</label>
       <select name="tipe" id="tipe">
         <option value="2TSG">2 TS G</option>
@@ -165,11 +165,10 @@ $siswa = array(
       <label for="time_15">15 Detik</label>
 
 
-      <input type="submit" value="Simpan Pengaturan">
+      <input type="submit" value="Mulai Lalaran">
       <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
       <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
       <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
-      <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
     </form>
   </div>
 </body>

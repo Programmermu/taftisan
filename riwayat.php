@@ -1,7 +1,8 @@
 <?php
 include("koneksi.php");
+session_start();
 // Query untuk mengambil data dari tabel
-$sql = "SELECT * FROM hasil ORDER BY score DESC LIMIT 10";
+$sql = "SELECT * FROM hasil where nama ='" . $_SESSION['settings']['name'] . "' ORDER BY score DESC LIMIT 10";
 
 // Eksekusi query
 $result = mysqli_query($conn, $sql);
@@ -93,10 +94,14 @@ mysqli_close($conn);
             <td><?php echo $row['kamar']; ?></td>
             <td><?php echo $row['start_bait']; ?></td>
             <td><?php echo $row['end_bait']; ?></td>
-            <td> <input type="checkbox" <?php if ($row['timer'] == 1) {
-                                          echo "checked";
-                                        } ?> disabled></td>
-            <td><?php echo $row['time']; ?></td>
+            <td> <?php if ($row['timer'] == 0) {
+                    echo "Non ";
+                  } ?>Aktif</td>
+            <td><?php if ($row['timer'] == 1) {
+                  echo $row['time'] . " Detik";
+                } else {
+                  echo "-";
+                } ?></td>
             <td><?php echo $row['score']; ?></td>
             <td><?php echo $row['tanggal']; ?></td>
           </tr>
