@@ -130,18 +130,18 @@ mysqli_close($conn);
 
 </body>
 <script>
-  let bait = <?php echo json_encode($data) ?>;
+  let abyat = <?php echo json_encode($data) ?>;
   let mode = true;
-  let satar_awal = document.getElementsByClassName("satar_awal");
+  let awal_satar = document.getElementsByClassName("satar_awal");
   let satar_tsani = document.getElementsByClassName("satar_tsani");
 
   function toggleMode() {
-    for (let i = 0; i < satar_awal.length; i++) {
+    for (let i = 0; i < awal_satar.length; i++) {
       if (mode) {
-        satar_awal[i].textContent = "..." + bait[i].satar_awal.split(' ').slice(0, 3).join(' ');
+        awal_satar[i].textContent = "..." + abyat[i].satar_awal.split(' ').slice(0, 3).join(' ');
         satar_tsani[i].hidden = true;
       } else {
-        satar_awal[i].textContent = bait[i].satar_awal;
+        awal_satar[i].textContent = abyat[i].satar_awal;
         satar_tsani[i].style.opacity = 0;
         satar_tsani[i].hidden = false;
         setTimeout(function() {
