@@ -9,7 +9,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   // Output data dari setiap baris
   while ($row = mysqli_fetch_assoc($result)) {
-    $data[] = $row;
+    $data[] = array(
+      'satar_awal' => $row['satar_awal'],
+      'satar_tsani' => $row['satar_tsani'],
+      'no_bait' => $row['no_bait']
+    );
   }
 } else {
   echo "0 hasil";
@@ -65,6 +69,7 @@ mysqli_close($conn);
     position: sticky;
     top: 0;
     padding: 10px;
+    z-index: 100;
     background-color: aliceblue;
   }
 
