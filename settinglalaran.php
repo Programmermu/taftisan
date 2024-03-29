@@ -42,7 +42,7 @@ $siswa = array(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Taftisan Online</title>
+  <title>Setting Lalaran</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -167,9 +167,7 @@ $siswa = array(
 
 
       <input type="submit" value="Mulai Lalaran">
-      <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
-      <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
-      <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
+      <a href="index.php" id="menu">Kembali Ke Menu</a>
     </form>
   </div>
 </body>
