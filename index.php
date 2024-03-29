@@ -39,6 +39,7 @@
   <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
   <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
   <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
+  <a href="tentang.php" id="tentang">Tentang</a>
   <a href="logout.php" id="logout">Logout</a>
 </body>
 
