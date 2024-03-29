@@ -70,17 +70,17 @@ mysqli_close($conn);
     a {
       position: fixed;
       bottom: 20px;
-      /* Jarak dari bawah */
       right: 20px;
-      /* Jarak dari kanan */
       padding: 10px 20px;
       background-color: #007bff;
-      /* Warna latar */
       color: #fff;
-      /* Warna teks */
       border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    #menu {
+      right: 120px;
     }
 
     progress {
@@ -136,6 +136,9 @@ mysqli_close($conn);
       </span>
     </p>
   <?php } ?>
+  <a href="mumarrin.php" id="backToStart">Refresh</a>
+  <a href="index.php" id="menu">Menu Awal</a>
+
 
 </body>
 
