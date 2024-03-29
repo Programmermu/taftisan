@@ -1,15 +1,5 @@
 <?php
-session_start();
-$score = $_SESSION['score'];
-// Hapus semua data session
-
-
-include("koneksi.php");
-// Persiapkan statement SQL dengan parameter
-$sql = "INSERT INTO hasil (nama, kamar, start_bait, end_bait, timer, time, score) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-// Persiapkan statement
-$stmt = mysqli_prepare($conn, $sql);
+session_start(); // Hapus semua data session
 
 if (isset($_SESSION['settings']['timer'])) {
   if ($_SESSION['settings']['timer'] == 1) {
@@ -26,6 +16,14 @@ if ($timer == "Aktif") {
 } else {
   $time = "-";
 }
+
+include("koneksi.php");
+// Persiapkan statement SQL dengan parameter
+$sql = "INSERT INTO hasil (nama, kamar, start_bait, end_bait, timer, time, score) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+// Persiapkan statement
+$stmt = mysqli_prepare($conn, $sql);
+
 
 
 
@@ -59,10 +57,6 @@ if ($stmt) {
 }
 
 mysqli_close($conn);
-
-$_SESSION['wrong_answers'] = 0;
-$_SESSION['remaining_time'] = 0;
-$_SESSION['score'] = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
