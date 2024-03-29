@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +33,17 @@
     a {
       text-decoration: none;
     }
+
+    h1>span {
+      font-style: italic;
+    }
   </style>
 </head>
 
 <body>
+  <?php if (isset($_SESSION['settings']['name'])) { ?>
+    <h1>Selamat Berjuang <span><?php echo $_SESSION['settings']['name'] ?></span></h1>
+  <?php } ?>
   <h1>Silahkan Pilih Salah Satu Menu</h1>
   <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
   <a href="settingquiz.php" id="quiz">Mode Quiz</a>
