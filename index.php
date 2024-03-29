@@ -1,88 +1,18 @@
-<?php
-// Mulai sesi PHP
-session_start();
-if (isset($_SESSION['settings'])) {
-  $name = $_SESSION['settings']['name'];
-  $room = $_SESSION['settings']['room'];
-  $start_bait = $_SESSION['settings']['start_bait'];
-  $end_bait = $_SESSION['settings']['end_bait'];
-  if (isset($_SESSION['settings']['timer'])) {
-    $timer = $_SESSION['settings']['timer'];
-  } else {
-    $timer = 0;
-  }
-  $time = $_SESSION['settings']['time'];
-  if (isset($_SESSION['settings']['mode'])) {
-    $mode = $_SESSION['settings']['mode'];
-  } else {
-    $mode = "satar_awal";
-  }
-} else {
-  $name = '';
-  $room = '';
-  $start_bait = "";
-  $end_bait = "";
-  $timer = 0;
-  $time = 0;
-  $mode = "satar_awal";
-}
-
-
-
-$siswa = array(
-  "M.SYAHIR AKMAL MUWAFAQ",
-  "MOHAMMAD TAQWIM", "AKHMAD ARYA ARDANI", "SAIFAN NAJIH AHMAD", "ACHMAD ZAINUN NURI", "M. JAUHARUL MA'ARIF", "MUHAMMAD FAIZ AL KHUNAINI", "THORIQ ZIYADUFFAQIH", "MOH. FAJRUL FALAH",
-  "MUHAMMAD FAHMI ALHIKAM", "MUKHAMMAD WAHYU ALFIN"
-)
-?>
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Taftisan Online</title>
+  <title>Document</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      display: flex;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
 
-    form {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 400px;
-      text-align: center;
-    }
-
-    label {
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 16px;
-      box-sizing: border-box;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      margin-right: 8px;
-    }
-
-    input[type="submit"],
     a {
       background-color: #4caf50;
       color: #fff;
@@ -93,104 +23,23 @@ $siswa = array(
       font-size: 16px;
       margin: 5px auto;
       display: block;
+      text-align: center;
     }
 
     a {
       text-decoration: none;
     }
-
-    input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-
-    #umum {
-      display: none;
-    }
   </style>
 </head>
 
 <body>
-  <div id="isi">
-    <form action="test.php" method="post">
-      <label for="tipe">Tipe :</label>
-      <select name="tipe" id="tipe">
-        <option value="2TSG">2 TS G</option>
-        <option value="umum">UMUM</option>
-      </select>
-      <br>
-
-      <div id="2TSG">
-        <label for="2tsginput">Nama :</label>
-        <select name="2tsginput" id="2tsginput">
-          <?php foreach ($siswa as $anak) : ?>
-            <option value="<?= $anak; ?>" <?php if ($name == $anak) echo "selected"; ?>><?= $anak; ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-
-      <div id="umum" style="display: none;">
-        <label for="umumInput">Nama :</label>
-        <input type="text" id="umumInput" name="umumInput" value="">
-      </div>
-
-
-
-      <label for="room">Kamar:</label>
-      <input type="text" id="room" name="room" value="<?= $room ?>">
-
-      <label for="start_bait">Mulai dari Bait:</label>
-      <input type="number" id="start_bait" name="start_bait" value="<?= $start_bait ?>" min="1">
-
-      <label for="end_bait">Sampai Bait:</label>
-      <input type="number" id="end_bait" name="end_bait" value="<?= $end_bait ?>" max="500" required>
-
-      <label for="mode">Tipe :</label>
-      <select name="mode" id="mode">
-        <option value="satar_awal" <?php if ($mode == "satar_awal") echo "selected"; ?>>Satar Awwal</option>
-        <option value="full_bait" <?php if ($mode == "full_bait") echo "selected"; ?>>Full Bait</option>
-        <option value="satar_tsani" <?php if ($mode == "satar_tsani") echo "selected"; ?>>Satar Tsani</option>
-      </select>
-      <label for="timer">Gunakan Timer:</label>
-      <input type="checkbox" id="timer" name="timer" value="1" <?php if ($timer == 1) echo "checked"; ?>>
-
-      <label>Waktu Timer:</label>
-      <br>
-      <input type="radio" id="time_5" name="time" value="5" <?php if ($time == 5) echo "checked"; ?> required>
-      <label for="time_5">5 Detik</label>
-
-      <input type="radio" id="time_10" name="time" value="10" <?php if ($time == 10) echo "checked"; ?>>
-      <label for="time_10">10 Detik</label>
-
-      <input type="radio" id="time_15" name="time" value="15" <?php if ($time == 15) echo "checked"; ?>>
-      <label for="time_15">15 Detik</label>
-
-
-      <input type="submit" value="Simpan Pengaturan">
-      <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
-      <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
-      <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
-      <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
-    </form>
-  </div>
+  <h1></h1>
+  <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
+  <a href="settingquiz.php" id="quiz">Mode Quiz</a>
+  <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
+  <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
+  <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
+  <a href="logout.php" id="logout">Logout</a>
 </body>
-
-<script>
-  document.getElementById('tipe').addEventListener('change', function() {
-    var selectedValue = this.value;
-
-    // Menampilkan atau menyembunyikan elemen-elemen sesuai dengan nilai yang dipilih
-    if (selectedValue === 'umum') {
-      document.getElementById('umum').style.display = 'block';
-      document.getElementById('umumInput').setAttribute('required', true);
-      document.getElementById('2TSG').style.display = 'none';
-      document.getElementById('2tsginput').removeAttribute('required');
-    } else if (selectedValue === '2TSG') {
-      document.getElementById('umum').style.display = 'none';
-      document.getElementById('umumInput').removeAttribute('required');
-      document.getElementById('2TSG').style.display = 'block';
-      document.getElementById('2tsginput').setAttribute('required', true)
-    }
-  });
-</script>
 
 </html>
