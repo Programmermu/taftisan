@@ -165,9 +165,8 @@ $_SESSION['score'] = 0;
       <div>Full Mening...</div>
     <?php } ?>
     <div class="link-container">
-      <a href="index.php">Kembali ke Setting Lalaran</a>
+      <a href="settinglalaran.php">Kembali ke Setting Lalaran</a>
       <a href="index.php">Kembali ke Menu Awal</a>
-      <a href="logout.php">Logout</a>
       <a href="riwayat.php">Hasil Nilai Lengkap</a>
     </div>
   </div>
