@@ -31,13 +31,15 @@ if (!isset($_SESSION['settings'])) {
   if (isset($_POST['time'])) {
     $_SESSION['settings']['time'] = $_POST['time'];
   }
+  $_SESSION['wrong_answers'] = 0;
+  $_SESSION['remaining_time'] = 0;
+  $_SESSION['score'] = 0;
 } else {
   if (isset($_POST['answer'])) {
+    $_SESSION['settings']['baitsoal']++;
     if ($_POST['answer'] == $_SESSION['settings']['correctAnswer']) {
       $_SESSION['score'] += 10;
-      $_SESSION['settings']['baitsoal']++;
     } else {
-      $_SESSION['settings']['baitsoal']++;
       array_push($_SESSION['settings']['salahjawab'], array($_SESSION['settings']['soal'], $_SESSION['settings']['correctAnswer']));
       $_SESSION['score'] -= 5;
       $_SESSION['wrong_answers'] += 1;
@@ -73,10 +75,11 @@ if (!isset($_SESSION['settings'])) {
     } else {
       $_SESSION['score'] -= 5;
       $_SESSION['wrong_answers'] += 1;
-      if ($_SESSION['wrong_answers'] >= 5) {
-        header("Location: hasillalaran.php");
-        exit(); // Pastikan untuk keluar setelah melakukan redirect
-      }
+      // if ($_SESSION['wrong_answers'] >= 5) {
+      //   header("Location: hasillalaran.php");
+      //   exit();
+      // Pastikan untuk keluar setelah melakukan redirect
+      // }
     }
   }
 }
@@ -233,8 +236,7 @@ mysqli_close($conn);
   }
 
   #logout,
-  #backToStart,
-  #cek {
+  #backToStart {
     margin-top: 10px;
     text-decoration: none;
     padding: 8px 8px;
@@ -287,7 +289,6 @@ mysqli_close($conn);
         </div>
       <?php endforeach; ?>
       <input id="kirim" type="submit" value="Kirim Jawaban" hidden>
-      <button type="button" id="cek" onclick="tampilkanHasil()">Cek Jawaban</button>
     <?php else : ?>
       <p>Quiz telah selesai atau tidak ada pengaturan yang diatur.</p>
     <?php endif; ?>
@@ -317,7 +318,9 @@ mysqli_close($conn);
     var radioButtons = document.getElementsByName('answer');
     var answerContainer = document.getElementsByName('answerContainer');
 
-    var answer = <?php echo json_encode($answers) ?>;
+    // var answer = <?php
+                    // echo json_encode($answers)
+                    ?>;
     var full = true;
 
     // Mendefinisikan variabel untuk menyimpan nilai jawaban yang dipilih
