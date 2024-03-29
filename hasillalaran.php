@@ -38,7 +38,7 @@ if ($stmt) {
     $_SESSION['settings']['name'],
     $_SESSION['settings']['room'],
     $_SESSION['settings']['start_bait'],
-    $_SESSION['settings']['end_bait'],
+    $_SESSION['settings']['baitsoal'],
     $timer,
     $time,
     $_SESSION['score']
@@ -146,7 +146,7 @@ $_SESSION['score'] = 0;
     <div class="info">
       <p>Nama: <?= $_SESSION['settings']['name']; ?></p>
       <p>Kelas: <?= $_SESSION['settings']['room']; ?></p>
-      <p>Bait: <?= $_SESSION['settings']['start_bait']; ?> - <?= $_SESSION['settings']['end_bait']; ?></p>
+      <p>Bait: <?= $_SESSION['settings']['start_bait']; ?> - <?= $_SESSION['settings']['baitsoal']; ?></p>
       <p> Timer : <?= $timer ?></p>
       <p <?php if ($timer == "Tidak Aktif") echo "hidden" ?>> Waktu: <?= $time ?></p>
     </div>
