@@ -42,7 +42,7 @@ $siswa = array(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Taftisan Online</title>
+  <title>Setting Quiz Alfiyyah</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -165,11 +165,8 @@ $siswa = array(
       <label for="time_15">15 Detik</label>
 
 
-      <input type="submit" value="Simpan Pengaturan">
-      <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
-      <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
-      <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
-      <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
+      <input type="submit" value="Mulai Quiz">
+      <a href="index.php" id="menu">Kembali ke Menu</a>
     </form>
   </div>
 </body>
