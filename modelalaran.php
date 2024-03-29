@@ -304,8 +304,7 @@ mysqli_close($conn);
     <!-- <button onclick="togglemode()">Mode</button> -->
   </div>
   <div class="navigation">
-    <a href="logout.php" id="logout">Logout</a>
-    <a href="index.php" id="backToStart">Kembali ke Awal</a>
+    <a href="settinglalaran.php" id="backToStart">Kembali ke Awal</a>
     <a href="hasillalaran.php" id="backToStart">Wes Ngaso sek</a>
   </div>
 
@@ -386,13 +385,14 @@ mysqli_close($conn);
     function pilihjawaban() {
       for (var i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
-          tampilkanHasil()
+          tampilkanHasil();
+          clearInterval(cekjawaban);
         }
       }
     }
 
     // Panggil fungsi timer setiap 1 detik
     setInterval(timer, 1000);
-    setInterval(pilihjawaban, 50);
+    let cekjawaban = setInterval(pilihjawaban, 50);
   </script>
 </body>
