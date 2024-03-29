@@ -106,7 +106,7 @@ mysqli_close($conn);
     </label>
     <input type="number" name="nobait" id="nobait" max="500">
     <button onclick="focusElement()" id="loncat">Loncat</button>
-    <a href="index.php" id="backheader">Kembali ke Awal</a>
+    <a href="index.php" id="backheader">Kembali ke Menu</a>
   </div>
   <div class="data">
     <?php foreach ($data as $bait) { ?>

@@ -111,6 +111,7 @@ $siswa = array(
 
 <body>
   <div id="isi">
+    <h1>Mode Lalaran</h1>
     <form action="modelalaran.php" method="post">
       <label for="tipe">Tipe :</label>
       <select name="tipe" id="tipe">

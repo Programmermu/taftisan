@@ -1,6 +1,12 @@
 <?php
 include("koneksi.php");
 session_start();
+
+if (!isset($_SESSION['settings']['name'])) {
+  header("Location: index.php");
+  exit(); // Pastikan untuk keluar setelah melakukan redirect
+}
+
 // Query untuk mengambil data dari tabel
 $sql = "SELECT * FROM hasil where nama ='" . $_SESSION['settings']['name'] . "' ORDER BY score DESC LIMIT 10";
 
