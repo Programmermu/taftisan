@@ -33,7 +33,7 @@
 </head>
 
 <body>
-  <h1></h1>
+  <h1>Silahkan Pilih Salah Satu Menu</h1>
   <a href="baitalfiyah.php" id="baitlengkap">Bait Alfiyah Lengkap</a>
   <a href="settingquiz.php" id="quiz">Mode Quiz</a>
   <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
