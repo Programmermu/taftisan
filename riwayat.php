@@ -8,7 +8,7 @@ if (!isset($_SESSION['settings']['name'])) {
 }
 
 // Query untuk mengambil data dari tabel
-$sql = "SELECT * FROM hasil where nama ='" . $_SESSION['settings']['name'] . "' ORDER BY score DESC LIMIT 10";
+$sql = "SELECT * FROM hasil where nama ='" . $_SESSION['settings']['name'] . "' ORDER BY tanggal DESC LIMIT 10";
 
 // Eksekusi query
 $result = mysqli_query($conn, $sql);
