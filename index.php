@@ -37,6 +37,10 @@ session_start();
     h1>span {
       font-style: italic;
     }
+
+    #logout {
+      background-color: #e6473c;
+    }
   </style>
 </head>
 
@@ -51,7 +55,9 @@ session_start();
   <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
   <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
   <a href="tentang.php" id="tentang">Tentang</a>
-  <a href="logout.php" id="logout">Logout</a>
+  <?php if (isset($_SESSION['settings']['name'])) { ?>
+    <a href="logout.php" id="logout">Logout</a>
+  <?php } ?>
 </body>
 
 </html>
