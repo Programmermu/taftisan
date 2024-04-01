@@ -128,7 +128,7 @@ $siswa = array(
 
       <div id="umum" <?php if ($tipe == "2TSG") echo 'style="display:none;'; ?>>
         <label for="umumInput">Nama :</label>
-        <input type="text" id="umumInput" name="umumInput" value="<?php if ($tipe == "umum") echo $anak; ?>">
+        <input type="text" id="umumInput" name="umumInput" value="<?php if ($tipe == "umum") echo $name; ?>">
       </div>
 
 
