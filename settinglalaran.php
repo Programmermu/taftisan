@@ -103,10 +103,6 @@ $siswa = array(
     input[type="submit"]:hover {
       background-color: #45a049;
     }
-
-    #umum {
-      display: none;
-    }
   </style>
 </head>
 

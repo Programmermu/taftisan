@@ -132,7 +132,7 @@ mysqli_close($conn);
     <h1>Nilai Akhir</h1>
     <div class="info">
       <p>Nama: <?= $_SESSION['settings']['name']; ?></p>
-      <p>Kelas: <?= $_SESSION['settings']['room']; ?></p>
+      <p>Kamar/Kelas: <?= $_SESSION['settings']['room']; ?></p>
       <p>Bait: <?= $_SESSION['settings']['start_bait']; ?> - <?= $_SESSION['settings']['end_bait']; ?></p>
       <p> Timer : <?= $timer ?></p>
       <p <?php if ($timer == "Tidak Aktif") echo "hidden" ?>> Waktu: <?= $time ?></p>

@@ -60,9 +60,7 @@ if ($stmt) {
 
 mysqli_close($conn);
 
-$_SESSION['wrong_answers'] = 0;
-$_SESSION['remaining_time'] = 0;
-$_SESSION['score'] = 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
