@@ -73,8 +73,11 @@ if (!isset($_SESSION['settings'])) {
         }
       }
     } else {
+      // ketika waktu habis belum sempat pilih jawaban
+      $_SESSION['settings']['baitsoal']++;
       $_SESSION['score'] -= 5;
       $_SESSION['wrong_answers'] += 1;
+      array_push($_SESSION['settings']['salahjawab'], array($_SESSION['settings']['soal'], $_SESSION['settings']['correctAnswer']));
       // if ($_SESSION['wrong_answers'] >= 5) {
       //   header("Location: hasillalaran.php");
       //   exit();
@@ -352,7 +355,6 @@ mysqli_close($conn);
     }
 
     function tampilkanHasil() {
-      document.getElementById('cek').hidden = true;
       document.getElementById('kirim').hidden = false;
       // Mendapatkan semua elemen radio button dengan nama 'answer'
       for (var i = 0; i < radioButtons.length; i++) {
@@ -384,18 +386,19 @@ mysqli_close($conn);
       }
 
     }
-
-    function pilihjawaban() {
-      for (var i = 0; i < radioButtons.length; i++) {
-        if (radioButtons[i].checked) {
-          tampilkanHasil();
-          clearInterval(cekjawaban);
+    document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+      radio.addEventListener('click', function() {
+        for (var i = 0; i < radioButtons.length; i++) {
+          if (radioButtons[i].checked) {
+            tampilkanHasil();
+            clearInterval(cekjawaban);
+          }
         }
-      }
-    }
+      });
+    });
 
     // Panggil fungsi timer setiap 1 detik
     setInterval(timer, 1000);
-    let cekjawaban = setInterval(pilihjawaban, 50);
+    // let cekjawaban = setInterval(pilihjawaban, 50);
   </script>
 </body>
