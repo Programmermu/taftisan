@@ -22,10 +22,10 @@ if (isset($_SESSION['settings'])) {
 } else {
   $name = '';
   $room = '';
-  $start_bait = "";
-  $end_bait = "";
+  $start_bait = 100;
+  $end_bait = 500;
   $timer = 0;
-  $time = 0;
+  $time = 5;
   $mode = "satar_awal";
   $tipe = "2TSG";
 }
