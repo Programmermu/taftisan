@@ -9,7 +9,9 @@ if (isset($_SESSION['settings'])) {
   $end_bait = $_SESSION['settings']['end_bait'];
   if (isset($_SESSION['settings']['timer'])) {
     $timer = $_SESSION['settings']['timer'];
+    $time = $_SESSION['settings']['time'];
   } else {
+    $time = 5;
     $timer = 0;
   }
   $time = $_SESSION['settings']['time'];
