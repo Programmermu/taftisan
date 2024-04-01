@@ -11,7 +11,7 @@ if (isset($_SESSION['settings'])) {
     $timer = $_SESSION['settings']['timer'];
     $time = $_SESSION['settings']['time'];
   } else {
-    $time = 5;
+    $time = 0;
     $timer = 0;
   }
   $time = $_SESSION['settings']['time'];
@@ -26,8 +26,9 @@ if (isset($_SESSION['settings'])) {
   $start_bait = "";
   $end_bait = "";
   $timer = 0;
-  $time = 0;
+  $time = 5;
   $mode = "satar_awal";
+  $tipe = "2TSG";
 }
 
 

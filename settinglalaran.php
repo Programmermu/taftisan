@@ -27,6 +27,7 @@ if (isset($_SESSION['settings'])) {
   $timer = 0;
   $time = 0;
   $mode = "satar_awal";
+  $tipe = "2TSG";
 }
 
 
