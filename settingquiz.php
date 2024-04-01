@@ -4,6 +4,7 @@ session_start();
 if (isset($_SESSION['settings'])) {
   $name = $_SESSION['settings']['name'];
   $room = $_SESSION['settings']['room'];
+  $tipe = $_SESSION['settings']['tipe'];
   $start_bait = $_SESSION['settings']['start_bait'];
   $end_bait = $_SESSION['settings']['end_bait'];
   if (isset($_SESSION['settings']['timer'])) {
@@ -114,12 +115,12 @@ $siswa = array(
     <form action="test.php" method="post">
       <label for="tipe">Tipe :</label>
       <select name="tipe" id="tipe">
-        <option value="2TSG">2 TS G</option>
-        <option value="umum">UMUM</option>
+        <option value="2TSG" <?php if ($tipe == "2TSG") echo "selected"; ?>>2 TS G</option>
+        <option value="umum" <?php if ($tipe == "umum") echo "selected"; ?>>UMUM</option>
       </select>
       <br>
 
-      <div id="2TSG">
+      <div id="2TSG" <?php if ($tipe == "umum") echo 'style="display:none;'; ?>>
         <label for="2tsginput">Nama :</label>
         <select name="2tsginput" id="2tsginput">
           <?php foreach ($siswa as $anak) : ?>
@@ -128,14 +129,14 @@ $siswa = array(
         </select>
       </div>
 
-      <div id="umum" style="display: none;">
+      <div id="umum" <?php if ($tipe == "2TSG") echo 'style="display:none;'; ?>>
         <label for="umumInput">Nama :</label>
-        <input type="text" id="umumInput" name="umumInput" value="">
+        <input type="text" id="umumInput" name="umumInput" value="<?php if ($tipe == "umum") echo $anak; ?>">
       </div>
 
 
 
-      <label for="room">Kamar:</label>
+      <label for="room">Kamar/Kelas:</label>
       <input type="text" id="room" name="room" value="<?= $room ?>">
 
       <label for="start_bait">Mulai dari Bait:</label>
