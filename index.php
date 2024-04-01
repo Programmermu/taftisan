@@ -28,11 +28,9 @@ session_start();
       margin: 5px auto;
       display: block;
       text-align: center;
-    }
-
-    a {
       text-decoration: none;
     }
+
 
     h1>span {
       font-style: italic;
@@ -40,6 +38,13 @@ session_start();
 
     #logout {
       background-color: #e6473c;
+    }
+
+    p,
+    ul,
+    li {
+      font-style: italic;
+      font-size: 10px;
     }
   </style>
 </head>
@@ -55,9 +60,18 @@ session_start();
   <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
   <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
   <a href="tentang.php" id="tentang">Tentang</a>
+  <a href="saran.php" id="tentang">Saran/Kritik</a>
   <?php if (isset($_SESSION['settings']['name'])) { ?>
     <a href="logout.php" id="logout">Logout</a>
   <?php } ?>
+  <p>Version : 1.0.1 Last Updated 01/04/2024</p>
+  <p>Logs (fixed) : </p>
+  <ul>
+    <li>nama pada tipe umum tidak tersimpan</li>
+    <li>penambahan fitur kritik dan saran</li>
+    <li>penambahan default bait dan tipe</li>
+    <li>Lainnya</li>
+  </ul>
 </body>
 
 </html>
