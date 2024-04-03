@@ -57,6 +57,7 @@ mysqli_close($conn);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
   <title>Kritik dan saran</title>
   <style>
     form {

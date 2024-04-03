@@ -9,6 +9,8 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="JJ_Bqeyo1XzBRIPKHSxA3Q9aW_bpqK5M3k848xmmY8Q" />
+  <meta name="description" content="Website untuk hafalan alfiyah dengan fitur menarik, santri sangat di undang untuk mencoba">
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
   <title>Taftisan Nawasena AlFalah Ploso</title>
   <style>
     body {
@@ -45,7 +47,7 @@ session_start();
     ul,
     li {
       font-style: italic;
-      font-size: 10px;
+      font-size: 12px;
     }
   </style>
 </head>
@@ -60,7 +62,7 @@ session_start();
   <a href="settinglalaran.php" id="lalaran">Mode Lalaran</a>
   <a href="mumarrin.php" id="mumarrin">Mode Mumarrin</a>
   <a href="tentang.php" id="tentang">Tentang</a>
-  <a href="saran.php" id="tentang">Saran/Kritik</a>
+  <a href="saran.php" id="saran">Saran/Kritik</a>
   <?php if (isset($_SESSION['settings']['name'])) { ?>
     <a href="riwayat.php" id="riwayat">Riwayat Lengkap</a>
     <a href="logout.php" id="logout">Logout</a>
