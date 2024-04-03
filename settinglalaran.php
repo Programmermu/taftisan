@@ -118,7 +118,6 @@ $siswa = array(
         <option value="umum" <?php if ($tipe == "umum") echo "selected"; ?>>UMUM</option>
       </select>
       <br>
-
       <div id="2TSG" <?php if ($tipe == "umum") echo 'style="display:none;'; ?>>
         <label for="2tsginput">Nama :</label>
         <select name="2tsginput" id="2tsginput">
